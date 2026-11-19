@@ -3,23 +3,79 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GTA VI trophy checklist</title>
+<title>Leonida Trophy Tracker — 55/55 GTA 6 Trophy Guide</title>
+<link rel="icon" href="data:,">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <h1>GTA VI trophy checklist</h1>
-  <p id="progress">0 of 55 earned</p>
+<header class="masthead">
+  <p class="kicker">GRAND THEFT AUTO VI &middot; PLAYSTATION 5 &middot; OFFLINE GUIDE</p>
+  <h1>Leonida Trophy Tracker</h1>
+  <p class="sub">55/55 official names &middot; every guide cited &middot; works offline &middot; progress saved in your browser</p>
+  <div class="stats" id="stats">
+    <div class="stat"><span class="num" id="stat-earned">0/55</span><span class="lbl">earned</span></div>
+    <div class="stat"><span class="num" id="stat-pct">0%</span><span class="lbl">to platinum</span></div>
+    <div class="stat"><span class="num" id="stat-missable">26</span><span class="lbl">missable flagged</span></div>
+    <div class="stat"><span class="num" id="stat-hidden">28</span><span class="lbl">hidden on PS5</span></div>
+    <div class="stat"><span class="num">0</span><span class="lbl">online trophies</span></div>
+  </div>
+  <div class="bar"><div class="fill" id="bar-fill" style="width:0%"></div></div>
 </header>
-<div class="controls">
-  <label>Grade <select id="grade"><option value="all">All</option><option value="platinum">Platinum</option><option value="gold">Gold</option><option value="silver">Silver</option><option value="bronze">Bronze</option></select></label>
-  <button id="export" type="button">Export progress</button>
-  <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
-</div>
-<table>
-  <thead><tr><th>Earned</th><th>Trophy</th><th>Grade</th><th>How to get it</th></tr></thead>
-  <tbody id="rows"></tbody>
-</table>
+
+<section class="roadmap" id="roadmap">
+  <h2>Roadmap to the Platinum &mdash; &ldquo;Vice Got a Price!&rdquo;</h2>
+  <ol class="stages">
+    <li><strong>Stage 1 &mdash; Story playthrough</strong><span>Chapters 1&ndash;4, the final mission and every named mission. 17 trophies. Do partner moments (Hot Together, Retail Therapy) while your partner is with you.</span></li>
+    <li><strong>Stage 2 &mdash; Strangers &amp; contacts</strong><span>Andy, Kenton, Billy, Randy, Tyrone and 8 stranger strands. 6 trophies. Finish strands as they appear.</span></li>
+    <li><strong>Stage 3 &mdash; Activities &amp; combat</strong><span>Stunts, races, shooting range, drone races, fishing, bowling, heists and challenges. 19 trophies.</span></li>
+    <li><strong>Stage 4 &mdash; Collectibles &amp; exploration</strong><span>Meditation spots, cards, WAiNK spots, vehicles and all 52 areas of Leonida. 7 trophies.</span></li>
+    <li><strong>Stage 5 &mdash; Money, properties &amp; 100%</strong><span>Marked Bills, shops, garages, Scooter Bros and A Long Road (100% completion) &rarr; Platinum. 6 trophies.</span></li>
+  </ol>
+  <p class="roadmap-note">Missable = tied to a story moment or a one-shot situation. Do it when it appears, or replay the mission. Nothing else in this list can be missed &mdash; collectibles and activities stay open after the story.</p>
+</section>
+
+<section class="controls" aria-label="Tracker controls">
+  <input id="search" type="search" placeholder="Search a trophy or guide&hellip;" autocomplete="off">
+  <div class="chips" id="chips">
+    <button type="button" data-filter="all" class="chip on">All 55</button>
+    <button type="button" data-filter="story" class="chip">Story</button>
+    <button type="button" data-filter="missable" class="chip">Missable</button>
+    <button type="button" data-filter="collectibles" class="chip">Collectibles</button>
+    <button type="button" data-filter="activities" class="chip">Activities</button>
+    <button type="button" data-filter="online" class="chip">Online</button>
+  </div>
+  <label class="grade-label">Grade
+    <select id="grade">
+      <option value="all">All grades</option>
+      <option value="platinum">Platinum</option>
+      <option value="gold">Gold</option>
+      <option value="silver">Silver</option>
+      <option value="bronze">Bronze</option>
+    </select>
+  </label>
+  <label class="toggle"><input id="spoiler" type="checkbox"> Spoiler-safe: hide story trophies until earned</label>
+  <div class="io">
+    <button id="export" type="button">Export progress</button>
+    <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
+    <button id="reset" type="button">Reset</button>
+  </div>
+</section>
+
+<main class="layout">
+  <aside class="detail" id="detail" aria-live="polite">
+    <p class="detail-hint">Select a trophy to read its guide and its sources.</p>
+  </aside>
+  <section class="list-wrap">
+    <p class="count" id="count">Showing 55 of 55 trophies</p>
+    <ul class="list" id="list"></ul>
+    <p class="empty" id="empty" hidden>No trophies match this filter. There are no online trophies in GTA VI &mdash; every trophy is single-player.</p>
+  </section>
+</main>
+
+<footer>
+  <p><strong>Sources.</strong> Trophy names, descriptions and grades are the official PlayStation 5 list as published by Exophase and PSNProfiles on 18 November 2026 (both agree on all 55); reported by Push Square the same day and corroborated by GamesRadar+, Press Start and PC Gamer. Every guide in this tracker is written in our own words and names its source beside it. No Rockstar logo, artwork or copied guide text is used.</p>
+  <p><strong>Offline.</strong> This guide is plain static files. It loads nothing from the network and saves your progress only in this browser (localStorage). Export it to keep a backup; import it to restore.</p>
+</footer>
 <script type="module" src="app.js"></script>
 </body>
 </html>
